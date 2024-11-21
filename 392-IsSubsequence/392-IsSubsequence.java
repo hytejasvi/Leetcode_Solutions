@@ -11,8 +11,7 @@ class Solution {
         }
         if (left >= s.length()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }
