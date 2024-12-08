@@ -19,8 +19,8 @@ class Solution {
             
             // Add the normalized email to the set
             uniqueEmails.add(normalizedEmail);
-        }
-        
+        }             
+
         // The size of the set is the number of unique emails
         return uniqueEmails.size();
     }
