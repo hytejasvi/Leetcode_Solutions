@@ -1,30 +1,25 @@
 class Solution {
     public int maxNumberOfBalloons(String s) {
         String target = "balloon";
-        Map<Character, Integer> map = new HashMap<>();
-        for (Character c: s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0)+1);
+         int[] charCountS = new int[26]; // Count frequencies of characters in `s`
+        int[] charCountTarget = new int[26]; // Count frequencies of characters in `target`
+
+        // Populate character counts for `s`
+        for (char c : s.toCharArray()) {
+            charCountS[c - 'a']++;
         }
-        int j=0;
-        int res = 0;
-        while(map.containsKey(target.charAt(j)) && map.get(target.charAt(j)) != 0) {
-            int ws = 0;
-            for(int i=0; i < target.length();i++) {
-                if(map.containsKey(target.charAt(i))) {
-                    map.put(target.charAt(i), map.get(target.charAt(i))-1);
-                    if(map.get(target.charAt(i)) < 1) {
-                        map.remove(target.charAt(i));
-                    }
-                    ws++;
-                } else {
-                    return res;
-                }
-                if(ws == target.length()) {
-                    res++;
-                    ws=0;
-                }
-            }
+
+        // Populate character counts for `target`
+        for (char c : target.toCharArray()) {
+            charCountTarget[c - 'a']++;
         }
+
+        // Calculate the maximum number of copies of `target` that can be formed
+        int res = Integer.MAX_VALUE;
+        for (char c : target.toCharArray()) {
+            res = Math.min(res, charCountS[c - 'a'] / charCountTarget[c - 'a']);
+        }
+
         return res;
     }
 }
