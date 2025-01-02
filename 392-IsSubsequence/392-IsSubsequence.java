@@ -8,10 +8,10 @@ class Solution {
             } else {
                 right++;
             }
+            if (left == s.length()) {
+                break;
+            }
         }
-        if (left >= s.length()) {
-            return true;
-        }
-        return false;
+        return left == s.length();
     }
 }
