@@ -1,21 +1,21 @@
+import java.util.regex.Pattern;
 class Solution {
     public String reverseOnlyLetters(String s) {
-        int left = 0;
-        int right = s.length()-1;
-        StringBuilder str = new StringBuilder(s);
-        while (left < right) {
-            if (Character.isLetter(str.charAt(left)) && Character.isLetter(str.charAt(right))){
-                char temp = str.charAt(left);
-                str.setCharAt(left, str.charAt(right));
-                str.setCharAt(right, temp);
+        StringBuilder sb = new StringBuilder(s);
+        Pattern pattern = Pattern.compile("[a-zA-Z]");
+        int left = 0, right = s.length()-1;
+        while(left < right) {
+            if(!pattern.matcher(String.valueOf(s.charAt(left))).matches()) {
+                left++;
+            } else if(!pattern.matcher(String.valueOf(s.charAt(right))).matches()) {
+                right--;
+            } else {
+                sb.setCharAt(left, s.charAt(right));
+                sb.setCharAt(right, s.charAt(left));
                 left++;
                 right--;
-            } else if (!Character.isLetter(str.charAt(left))) {
-                left++;
-            } else {
-                right --;
             }
         }
-        return str.toString();
+        return sb.toString();
     }
 }
