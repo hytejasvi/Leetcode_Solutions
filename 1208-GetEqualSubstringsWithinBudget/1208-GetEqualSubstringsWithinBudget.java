@@ -1,22 +1,20 @@
 class Solution {
     public int equalSubstring(String s, String t, int maxCost) {
         int res = 0;
-        int cur_cost = 0;
-        int cur_start = 0;
-
-        for (int last_ind = 0; last_ind < s.length(); last_ind++) {
-            cur_cost += Math.abs(s.charAt(last_ind) - t.charAt(last_ind));
-
-            while (cur_cost > maxCost) {
-                cur_cost -= Math.abs(s.charAt(cur_start) - t.charAt(cur_start));
-                cur_start++;
-            }
-
-            if (last_ind - cur_start + 1 > res) {
-                res = last_ind - cur_start + 1;
-            }
+        int left = 0;
+        int[] diff = new int[s.length()];
+        for(int i=0;i<s.length();i++) {
+            diff[i] = Math.abs(t.charAt(i) - s.charAt(i));
         }
-
+        int windowSum=0;
+        for(int right=0;right<s.length();right++) {
+            windowSum = windowSum + diff[right];
+            while(windowSum > maxCost) {
+                windowSum = windowSum-diff[left];
+                left++;
+            }
+            res = Math.max(res, right-left+1);
+        }
         return res;
     }
 }
