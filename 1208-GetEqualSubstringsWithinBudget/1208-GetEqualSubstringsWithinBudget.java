@@ -1,5 +1,5 @@
 class Solution {
-    public int equalSubstring(String s, String t, int maxCost) {
+    /*public int equalSubstring(String s, String t, int maxCost) {
         int res = 0;
         int left = 0;
         int[] diff = new int[s.length()];
@@ -16,5 +16,20 @@ class Solution {
             res = Math.max(res, right-left+1);
         }
         return res;
+    }*/
+
+    public int equalSubstring(String s, String t, int maxCost) {
+    int res = 0;
+    int left = 0;
+    int windowSum = 0;
+    for (int right = 0; right < s.length(); right++) {
+        windowSum += Math.abs(s.charAt(right) - t.charAt(right));
+        while (windowSum > maxCost) {
+            windowSum -= Math.abs(s.charAt(left) - t.charAt(left));
+            left++;
+        }
+        res = Math.max(res, right - left + 1);
+    }
+    return res;
     }
 }
