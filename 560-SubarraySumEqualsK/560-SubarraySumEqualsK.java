@@ -7,6 +7,7 @@ class Solution {
         for (int num : nums) {
             currentSum = currentSum + num;
             if (myMap.containsKey(currentSum - k)) {
+                //res++;
                 res = res + myMap.get(currentSum - k);
             }
             myMap.put(currentSum, myMap.getOrDefault(currentSum, 0)+1);
