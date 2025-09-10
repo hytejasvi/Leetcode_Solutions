@@ -1,8 +1,14 @@
+// Last updated: 9/10/2025, 11:20:26 PM
 class Solution {
     public int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        int n = nums.length -1;
-        int ans = n/2;
-        return nums[ans];   
+        Map<Integer, Integer> myMap = new HashMap<>();
+        int n = nums.length/2;        
+        for(int num: nums) {
+            myMap.put(num, myMap.getOrDefault(num, 0)+1);
+            if(myMap.containsValue(n+1)) {
+                return num;
+            }
+        }
+        return n;
     }
 }
