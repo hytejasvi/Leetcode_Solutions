@@ -1,4 +1,4 @@
-// Last updated: 10/22/2025, 12:30:22 PM
+// Last updated: 10/22/2025, 12:34:55 PM
 class Solution {
     public boolean check(int[] nums) {
         int count = 0;
