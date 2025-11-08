@@ -1,3 +1,4 @@
+// Last updated: 11/8/2025, 8:44:45 PM
 class Solution {
     public int[] applyOperations(int[] nums) {
         int left = 0;
