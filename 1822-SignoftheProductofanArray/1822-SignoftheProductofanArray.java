@@ -1,18 +1,14 @@
-// Last updated: 11/9/2025, 10:23:49 AM
+// Last updated: 11/9/2025, 10:24:59 AM
 class Solution {
     public int arraySign(int[] nums) {
-        int negCount = 0, zeros = 0;
-        for(int i=0;i< nums.length;i++) {
-            if(nums[i] < 0) {
-                negCount++;
-            } else if(nums[i] == 0) {
-                zeros++;
-            }
+        int countNegative = 0;
+        
+        for (int num : nums) {
+            if (num == 0) return 0;      // zero makes product zero
+            if (num < 0) countNegative++; // track negatives
         }
-        if(zeros > 0) {
-            return 0;
-        } else {
-            return negCount %2 == 0? 1: -1;
-        }
+        
+        // even negatives → positive, odd → negative
+        return (countNegative % 2 == 0) ? 1 : -1;
     }
 }
