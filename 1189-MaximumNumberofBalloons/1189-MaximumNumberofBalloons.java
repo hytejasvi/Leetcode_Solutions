@@ -1,25 +1,34 @@
+// Last updated: 11/19/2025, 9:21:18 PM
 class Solution {
-    public int maxNumberOfBalloons(String s) {
-        String target = "balloon";
-         int[] charCountS = new int[26]; // Count frequencies of characters in `s`
-        int[] charCountTarget = new int[26]; // Count frequencies of characters in `target`
-
-        // Populate character counts for `s`
-        for (char c : s.toCharArray()) {
-            charCountS[c - 'a']++;
+    public int maxNumberOfBalloons(String text) {
+        String balloon = "balloon";
+        if(text.length() < balloon.length()) {
+            return 0;
         }
-
-        // Populate character counts for `target`
-        for (char c : target.toCharArray()) {
-            charCountTarget[c - 'a']++;
+        int count=0;
+        Map<Character, Integer> myMap = new HashMap<>();
+        for(char c: text.toCharArray()) {
+            myMap.put(c, myMap.getOrDefault(c, 0)+1);
         }
-
-        // Calculate the maximum number of copies of `target` that can be formed
-        int res = Integer.MAX_VALUE;
-        for (char c : target.toCharArray()) {
-            res = Math.min(res, charCountS[c - 'a'] / charCountTarget[c - 'a']);
+        int i=0;
+        while(i < text.length()) {
+            int left = 0;
+            if(myMap.containsKey(balloon.charAt(left))) {
+                while(left < balloon.length() && myMap.containsKey(balloon.charAt(left))) {
+                    char ch = balloon.charAt(left);
+                    myMap.put(ch, myMap.get(ch)-1);
+                    if(myMap.get(ch) == 0) {
+                        myMap.remove(ch);
+                    }
+                    left++;
+                }
+                if(left == balloon.length()) {
+                    count++;
+                }
+            } else {
+                break;
+            }
         }
-
-        return res;
+        return count;
     }
 }
