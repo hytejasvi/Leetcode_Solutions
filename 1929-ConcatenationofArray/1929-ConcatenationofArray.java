@@ -1,14 +1,14 @@
-// Last updated: 11/12/2025, 2:50:52 PM
-class Solution {
-    public int[] getConcatenation(int[] nums) {
-        int[] res = new int[nums.length * 2];
-        int n = nums.length;
-        res[0] = nums[0];
-        res[n] = nums[0];
-        for(int i=1;i < n;i++) {
-            res[i] = nums[i];
-            res[n+i] = nums[i];
-        }
-        return res;
-    }
-}
+// Last updated: 1/13/2026, 10:39:45 PM
+1class Solution {
+2    public int[] getConcatenation(int[] nums) {
+3        int[] res = new int[nums.length * 2];
+4        int n = nums.length;
+5        res[0] = nums[0];
+6        res[n] = nums[0];
+7        for(int i=1;i < n;i++) {
+8            res[i] = nums[i];
+9            res[n+i] = nums[i];
+10        }
+11        return res;
+12    }
+13}
