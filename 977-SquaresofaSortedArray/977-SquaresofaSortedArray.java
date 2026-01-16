@@ -1,4 +1,4 @@
-// Last updated: 1/16/2026, 8:37:20 PM
+// Last updated: 1/16/2026, 8:37:47 PM
 1class Solution {
 2    public int[] sortedSquares(int[] nums) {
 3
@@ -11,13 +11,12 @@
 10            if(i > j) {
 11                res[k] = i;
 12                left++;
-13                k--;
-14            } else {
-15                res[k] = j;
-16                right--;
-17                k--;
-18            }
-19        }
-20        return res;
-21    }
-22}
+13            } else {
+14                res[k] = j;
+15                right--;
+16            }
+17            k--;
+18        }
+19        return res;
+20    }
+21}
