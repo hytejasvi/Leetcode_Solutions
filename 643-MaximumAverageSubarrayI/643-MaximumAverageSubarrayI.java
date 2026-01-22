@@ -1,31 +1,17 @@
-// Last updated: 10/13/2025, 1:24:46 PM
-class Solution {
-    public double findMaxAverage(int[] nums, int k) {
-        /*double maxAvg = -Double.MAX_VALUE;
-        double windowSum = 0.0;
-        for(int i=0;i<k;i++) {
-            windowSum = windowSum+nums[i];
-        }
-        maxAvg = Math.max(maxAvg, windowSum/(double)k);
-        int left=0;
-        for(int i=k;i< nums.length;i++) {
-            windowSum = windowSum + nums[i] - nums[left];
-            maxAvg = Math.max(maxAvg, windowSum/(double)k);
-            left++;
-        }
-        return maxAvg; */
-
-        int windowSum = 0;
-        for(int i=0;i<k;i++) {
-            windowSum = windowSum+nums[i];
-        }
-        int maxSum = windowSum;
-        int left = 0;
-        for(int i=k;i< nums.length;i++) {
-            windowSum = windowSum+nums[i]-nums[left];
-            maxSum = Math.max(maxSum, windowSum);
-            left++;
-        }
-        return maxSum/(double)k;
-    }
-}
+// Last updated: 1/22/2026, 10:22:25 AM
+1class Solution {
+2    public double findMaxAverage(int[] nums, int k) {
+3        int windowSum = 0;
+4        int left = 0;
+5        for(int i=0;i < k;i++) {
+6            windowSum += nums[i];
+7        }
+8        int maxSum = windowSum;
+9        for(int i=k;i< nums.length;i++) {
+10            windowSum = windowSum+ nums[i]-nums[left];
+11            left++;
+12            maxSum = Math.max(maxSum, windowSum);
+13        }
+14        return maxSum/(double)k;
+15    }
+16}
