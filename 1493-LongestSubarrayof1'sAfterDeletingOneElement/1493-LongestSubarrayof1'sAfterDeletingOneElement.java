@@ -1,4 +1,4 @@
-// Last updated: 11/26/2025, 3:01:50 PM
+// Last updated: 1/23/2026, 3:06:55 PM
 1class Solution {
 2    public int longestSubarray(int[] nums) {
 3        int left = 0, maxLength=0;
