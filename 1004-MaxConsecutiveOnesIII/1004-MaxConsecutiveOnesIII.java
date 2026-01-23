@@ -1,4 +1,4 @@
-// Last updated: 11/26/2025, 2:57:08 PM
+// Last updated: 1/23/2026, 3:10:53 PM
 1class Solution {
 2    public int longestOnes(int[] nums, int k) {
 3        int left = 0, maxLength=0;
