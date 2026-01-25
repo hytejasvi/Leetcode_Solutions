@@ -1,12 +1,12 @@
-// Last updated: 9/8/2025, 8:56:01 PM
-class Solution {
-    public int missingNumber(int[] nums) {
-        int n = nums.length;
-        int expectedSum = n * (n + 1) / 2;
-        int sum = 0;
-        for(int m: nums) {
-            sum = sum+ m;
-        }
-        return expectedSum - sum;
-    }
-}
+// Last updated: 1/25/2026, 7:24:42 PM
+1class Solution {
+2    public int missingNumber(int[] nums) {
+3        int n = nums.length;
+4        int expectedSum = n * (n + 1) / 2;
+5        int sum = 0;
+6        for(int m: nums) {
+7            sum = sum+ m;
+8        }
+9        return expectedSum - sum;
+10    }
+11}
